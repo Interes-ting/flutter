@@ -4,12 +4,14 @@ import '../pages/tabs/tabs.dart';
 import '../pages/login/login.dart';
 import '../pages/register/register.dart';
 import '../pages/tabs/user/user.dart';
+import '../pages/tabs/menu/menu_list.dart';
 
 final routes = {
   '/': (context) => Tabs(),
   '/login': (context) => LoginPage(),
   '/register': (context) => RegisterPage(),
   '/user': (context) => UserPage(),
+  '/list': (context, {arguments}) => MenuList(arguments: arguments),
   // '/search': (context) => SearchPage(),
   // '/search': (context, {arguments}) => SearchPage(arguments: arguments),//传参数
 };

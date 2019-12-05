@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widget/Dialog.dart';
 import 'package:flutter/services.dart';
+
 class LoginForm extends StatefulWidget {
   LoginForm({Key key}) : super(key: key);
 
@@ -35,6 +36,7 @@ class _LoginFormState extends State<LoginForm> {
                     prefixIcon: Icon(Icons.person),
                     border: InputBorder.none, //隐藏下划线
                   ),
+                  keyboardType: TextInputType.phone, //手机号
                   inputFormatters: [
                     //只能输入11个数字
                     LengthLimitingTextInputFormatter(11)

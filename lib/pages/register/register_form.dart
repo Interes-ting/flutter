@@ -44,6 +44,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   fillColor: Color.fromRGBO(220, 223, 230, 0.5),
                   filled: true,
                 ),
+                keyboardType: TextInputType.phone, //手机号
                 inputFormatters: [
                   //只能输入11个数字
                   LengthLimitingTextInputFormatter(11)
