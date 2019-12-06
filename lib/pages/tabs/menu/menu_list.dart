@@ -35,7 +35,7 @@ class _MenuListState extends State<MenuList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('编辑表单'),
+        title: Text('编辑页面'),
       ),
       body: Container(
         margin: EdgeInsets.all(20),
@@ -303,7 +303,7 @@ class _MenuListState extends State<MenuList> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0)),
                           onPressed: () {
-                            if (Form.of(context).validate()) {}
+                            Navigator.pop(context);
                           },
                         ),
                       )

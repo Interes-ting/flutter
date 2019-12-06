@@ -5,6 +5,7 @@ import '../pages/login/login.dart';
 import '../pages/register/register.dart';
 import '../pages/tabs/user/user.dart';
 import '../pages/tabs/menu/menu_list.dart';
+import '../pages/tabs/menu/menu_add.dart';
 // import '../pages/tabs/menu/menu.dart';
 
 final routes = {
@@ -13,7 +14,7 @@ final routes = {
   '/register': (context) => RegisterPage(),
   '/user': (context) => UserPage(),
   '/list': (context, {arguments}) => MenuList(arguments: arguments),
-  // '/menu': (context, {arguments}) => MenuPage(arguments: arguments), //传参数
+  '/menuadd': (context) => MenuAdd(), //传参数
 };
 
 //固定写法

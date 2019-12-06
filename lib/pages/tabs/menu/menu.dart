@@ -13,6 +13,7 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   // 自定义方法
   var menulitsdata;
+
   ListView _getData() {
     menulitsdata = List<Widget>();
     menuData.forEach((value) {
@@ -27,7 +28,6 @@ class _MenuPageState extends State<MenuPage> {
           },
           child: InkWell(
             onTap: () {
-              // 跳转时传递参数
               Navigator.pushNamed(context, '/list', arguments: {
                 'id': value['id'],
                 'name': value['name'],
@@ -78,9 +78,6 @@ class _MenuPageState extends State<MenuPage> {
                 ListTile(
                   title: Text('年龄：${value['age']}'),
                 ),
-                ListTile(
-                  title: Text('年龄：${value['age']}'),
-                ),
               ],
             ),
           ),
@@ -97,6 +94,7 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 
+  Map itemsdata;
   Map listdata;
   List list;
   ListView listView;
@@ -112,6 +110,41 @@ class _MenuPageState extends State<MenuPage> {
       appBar: AppBar(
         title: Text('菜单'),
         centerTitle: true,
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.add, color: Colors.white),
+            label: Text(
+              "新增",
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/menuadd').then((data) {
+                print('返回回来的参数:$data');
+                setState(() {
+                  itemsdata = data as Map;
+                  String id =
+                      itemsdata['id'] + (menuData.length + 2).toString();
+                  String name = itemsdata['name'];
+                  String phone = itemsdata['phone'];
+                  String sex = itemsdata['sex'];
+                  String email = itemsdata['email'];
+                  String age = itemsdata['age'];
+                  String address = itemsdata['address'];
+                  menuData.add({
+                    'id': id,
+                    'name': name,
+                    'phone': phone,
+                    'sex': sex,
+                    'email': email,
+                    'age': age,
+                    'address': address
+                  });
+                  listView = _getData();
+                });
+              });
+            },
+          ),
+        ],
       ),
       body: Container(
         child: listView,
