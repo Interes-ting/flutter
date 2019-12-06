@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MenuList extends StatefulWidget {
-  final arguments;
-  MenuList({this.arguments});
-
+class MenuAdd extends StatefulWidget {
   @override
-  _MenuListState createState() => _MenuListState();
+  _MenuAddState createState() => _MenuAddState();
 }
 
-class _MenuListState extends State<MenuList> {
-  // 用来保存form表单
+class _MenuAddState extends State<MenuAdd> {
   GlobalKey _formKey = new GlobalKey<FormState>();
 
   TextEditingController _idController = new TextEditingController();
@@ -19,18 +15,6 @@ class _MenuListState extends State<MenuList> {
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _ageController = new TextEditingController();
   String sex;
-  @override
-  void initState() {
-    _phoneController.text = widget.arguments['phone'].toString();
-    sex = widget.arguments['sex'].toString();
-    _ageController.text = widget.arguments['age'].toString();
-    _idController.text = widget.arguments['id'].toString();
-    _nameController.text = widget.arguments['name'];
-    _addressController.text = widget.arguments['address'];
-    _emailController.text = widget.arguments['email'];
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
